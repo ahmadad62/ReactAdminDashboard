@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#1D322A",
+        "titleBar.activeBackground": "#29463B",
+        "titleBar.activeForeground": "#F7FBF9"
+    },
+    "cSpell.words": [
+        "datatable"
+    ]
+}
