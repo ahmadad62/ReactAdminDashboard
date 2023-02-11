@@ -108,7 +108,7 @@ const Widget = ({ type }) => {
       );
     };
     fetchData();
-  }, []);
+  }, [data]);
 
   return (
     <div className="widget">
