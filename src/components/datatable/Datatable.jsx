@@ -1,17 +1,15 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns } from "../../datatablesource";
-import { Link, Route, Routes, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   collection,
-  getDocs,
   deleteDoc,
   doc,
   onSnapshot
 } from "firebase/firestore";
 import { db } from "../../firebase";
-import Single from "../../pages/single/Single"
 
 
 const Datatable = () => {
