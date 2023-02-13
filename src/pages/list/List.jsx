@@ -10,6 +10,7 @@ export default function List() {
       <div className="listContainer">
       <Navbar/>
       <Datatable/>
+      
       </div>
     </div>
   )

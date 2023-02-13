@@ -16,7 +16,7 @@ import { useContext } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 
 export default function Sidebar() {
-   const { dispatch } = useContext(DarkModeContext);
+    const { dispatch } = useContext(DarkModeContext);
 
     return (
         <div className='sidebar'>
@@ -41,13 +41,13 @@ export default function Sidebar() {
                             <span>User</span>
                         </li>
                     </Link>
-                    <Link to="/products" style={{textDecoration:"none"}}>
-                  
-                    <li>
-                        <StoreIcon className="icon" />
-                        <span>Products</span>
-                    </li>
-                  </Link>
+                    <Link to="/products" style={{ textDecoration: "none" }}>
+
+                        <li>
+                            <StoreIcon className="icon" />
+                            <span>Products</span>
+                        </li>
+                    </Link>
                     <li>
                         <CreditCardIcon className="icon" />
                         <span>Orders</span>
@@ -91,8 +91,8 @@ export default function Sidebar() {
                 </ul>
             </div>
             <div className="bottom">
-                <div className="colorOption" onClick={()=>dispatch({type:"LIGHT"})}></div>
-                <div className="colorOption" onClick={()=>dispatch({type:"DARK"})}></div>
+                <div className="colorOption" onClick={() => dispatch({ type: "LIGHT" })}></div>
+                <div className="colorOption" onClick={() => dispatch({ type: "DARK" })}></div>
             </div>
         </div>
     )

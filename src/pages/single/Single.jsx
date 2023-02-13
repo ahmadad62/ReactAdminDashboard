@@ -3,8 +3,25 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 import List from "../../components/table/Table";
+import { useLocation, useParams } from "react-router-dom";
+
 
 const Single = () => {
+//   const {userId}=useParams
+   const user=useLocation().state
+// console.log("1",userId)
+ console.log("user",user)
+
+
+/* const location = useLocation();
+const {userId}=useParams()
+
+const stateParams = location.state //&& JSON.parse(location.state.stateParams) 
+console.log("stateParams",stateParams)
+console.log("2",location)
+console.log("userIduserIduserIduserId",userId) */
+
+
   return (
     <div className="single">
       <Sidebar />
@@ -16,29 +33,29 @@ const Single = () => {
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src="https://das-fotostudio-duesseldorf.de/wp-content/uploads/2019/01/Profilfoto-Xing.jpg"
+                src={user.img}
                 alt=""
                 className="itemImg"
               />
               <div className="details">
-                <h1 className="itemTitle">Jane Doe</h1>
+                <h1 className="itemTitle">{user.displayName}</h1>
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
-                  <span className="itemValue">janedoe@gmail.com</span>
+                  <span className="itemValue">{user.email}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Phone:</span>
-                  <span className="itemValue">+1 2345 67 89</span>
+                  <span className="itemValue">{user.phone}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Address:</span>
                   <span className="itemValue">
-                    Elton St. 234 Garden Yd. NewYork
+                   {user.address}
                   </span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Country:</span>
-                  <span className="itemValue">USA</span>
+                  <span className="itemValue">{user.county}</span>
                 </div>
               </div>
             </div>

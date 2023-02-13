@@ -1,20 +1,24 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns } from "../../datatablesource";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   collection,
+  getDocs,
   deleteDoc,
   doc,
-  onSnapshot,
+  onSnapshot
 } from "firebase/firestore";
 import { db } from "../../firebase";
+import Single from "../../pages/single/Single"
+
 
 const Datatable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+
     // const fetchData = async () => {
     //   let list = [];
     //   try {
@@ -67,8 +71,17 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to={`/users/${params.row.id}`} state={{
+              id: params.row.id,
+              displayName:params.row.displayName,
+              email: params.row.email,
+              phone:params.row.phone,
+              address:params.row.address,
+              country:params.row.country,
+              img:params.row.img,
+            }} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
+              {console.log("params",params)}
             </Link>
             <div
               className="deleteButton"
@@ -81,13 +94,33 @@ const Datatable = () => {
       },
     },
   ];
+  // add dynamic root to this components 
+  const location = useLocation();
+  const [title, setTitle] = useState("");
+  const [route, setRoute] = useState("");
+
+
+  useEffect(() => {
+    if (location.pathname.includes("/products")) {
+      setTitle("Add New Product");
+      setRoute("/products/new");
+    } else if (location.pathname.includes("/users")) {
+      setTitle("Add New User");
+      setRoute("/users/new");
+    }
+  }, [location]);
+
+
+
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
+        {title}
+        <Link to={route} className="link">
           Add New
         </Link>
+
       </div>
       <DataGrid
         className="datagrid"
@@ -97,6 +130,7 @@ const Datatable = () => {
         rowsPerPageOptions={[9]}
         checkboxSelection
       />
+
     </div>
   );
 };
