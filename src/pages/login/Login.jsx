@@ -11,7 +11,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const navigate=useNavigate()
 
-//use context to check user is online or not and protect other pages
+//use context to check user is there or not and protect other pages
 const {dispatch}=useContext(AuthContext)
 
   const handleLogin = (e) => {
