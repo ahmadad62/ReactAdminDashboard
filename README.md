@@ -1,4 +1,4 @@
-![Gif](https://github.com/ahmadad62/ReactAdminDashboard/blob/main/src/asset/chrome-capture-2023-2-8.gif)
+[Gif](https://github.com/ahmadad62/ReactAdminDashboard/blob/main/src/asset/chrome-capture-2023-2-8.gif)
 
 * * *
 
