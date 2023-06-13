@@ -41,6 +41,7 @@ const {dispatch}=useContext(AuthContext)
           type="password"
           placeholder="Password"
           onChange={e => setPassword(e.target.value)} />
+        <div>username:admin@admin.dev, password:123456</div>
         <button type="submit">Login</button>
         {error && <span>Wrong Email or Password!</span>}
       </form>
